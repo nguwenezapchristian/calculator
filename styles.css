@@ -13,10 +13,11 @@ h1 {
 }
 .output-div, .input-div {
     font-size: 20px;
-    padding: 15px 5px;
+    padding: 12px 5px;
     margin: 10px 0;
     border-radius: 5px;
     background-color: #5B5B5B;
+    height: 30px;
 }
 .container {
     position: absolute;
@@ -37,7 +38,7 @@ h1 {
     justify-content: space-between;
     padding-top: 10px;
 }
-.btn {
+.btn, .operator-btn {
     font-size: 20px;
     border-radius: 5px;
     background-color: #5B5B5B;
