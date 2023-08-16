@@ -3,8 +3,16 @@ const num2 = 1750000;
 const outPut = document.querySelector('#output');
 const userInPut = document.querySelector('#user-input');
 const buttons = document.querySelectorAll('.btn');
+const operatorBtns = document.querySelectorAll('.operator-btn');
+// var operatorValue = '';
 
-// const operator = "/";
+operatorBtns.forEach((operatorBtn) => {
+    operatorBtn.addEventListener('click', () => {
+        const operatorValue = operatorBtn.getAttribute('data-value');
+        console.log(operatorValue); 
+    })
+})
+
 
 buttons.forEach(function(button) {
     button.addEventListener('click', () => {
@@ -14,10 +22,14 @@ buttons.forEach(function(button) {
     })
 })
 
+
 function dealWithValue(value) {
-    if (typeof value === 'number') {
-        userInPut.textContent = String(value);
+    if (value === 'Del') {
+        userInPut.textContent = '';
+    } else if (value) {
+        userInPut.textContent += String(value);
     }
+    console.log(String(value));
 }
 
 function add(num1, num2) {
