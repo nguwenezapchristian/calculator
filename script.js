@@ -14,10 +14,16 @@ console.log(multiply(num1, num2));
 buttons.forEach(function(button) {
     button.addEventListener('click', () => {
         const value = button.getAttribute('data-value');
-        // display(value);
+        dealWithValue(value);
         alert(value);
     })
 })
+
+function dealWithValue(value) {
+    if (typeof value === 'number') {
+        
+    }
+}
 
 function add(num1, num2) {
     const total = num1 + num2;
