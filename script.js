@@ -3,7 +3,7 @@ const num2 = 1750000;
 const outPut = document.querySelector('#output');
 const userInPut = document.querySelector('#user-input');
 const buttons = document.querySelectorAll('.btn');
-
+const equalBtn = document.querySelector('.equal-btn');
 
 // var operatorValue = '';
 
@@ -14,6 +14,10 @@ buttons.forEach(function(button) {
         writeBtnValue(value);
         // alert(value);
     })
+})
+
+equalBtn.addEventListener('click', () => {
+    operation();
 })
 
 
