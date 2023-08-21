@@ -37,7 +37,7 @@ function operation() {
     const userInPutStr = (String(userInPut.textContent));
     const strToArray = userInPutStr.match(/[+\-*\/]|\d+/g); // turning the user input into an array using regx
     let results = parseInt(strToArray[0], 10);
-    bool = true;
+    bool = true; // boolean variable to use in checking if there was a division by zero and display a message
 
     for (let i = 1; i < strToArray.length; i += 2) {
         const operator = strToArray[i];
@@ -65,8 +65,8 @@ function operation() {
     }
     if (bool) {
         const result = results.toFixed(4); // => four decimal places to be displayed
-        outPut.textContent = `${userInPut.textContent} = ${result}`; 
-        userInPut.textContent = '';
+        outPut.textContent = `${userInPut.textContent} = ${result}`; // formated text for output
+        userInPut.textContent = ''; // clear the user Input
     }
 }
 
