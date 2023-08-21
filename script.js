@@ -9,7 +9,6 @@ buttons.forEach(function(button) {
     button.addEventListener('click', () => {
         const value = button.getAttribute('data-value');
         writeBtnValue(value);
-        // alert(value);
     })
 })
 
@@ -27,9 +26,9 @@ function operation() {
     const strToArray = userInPutStr.match(/[+\-*\/]|\d+/g); // turning the user input into an array
     let results = parseInt(strToArray[0], 10);
 
-    for (let i = 1; i < strToArray.length; i+2) {
+    for (let i = 1; i < strToArray.length; i += 2) {
         const operator = strToArray[i];
-        const num = parseInt((strToArray[i++]), 10);
+        const num = parseInt((strToArray[i + 1]), 10);
 
         switch(operator) {
             case "+":
@@ -42,11 +41,16 @@ function operation() {
                 results = multiply(results, num);
                 break;
             case "/":
-                results = divide(results, num);
+                if (num == 0) {
+                    outPut.textContent = `You can't divide by 0`
+                } else {
+                    results = divide(results, num);
+                };
                 break;
         }
     }
-    console.log(results);
+    outPut.textContent = `${userInPut.textContent} = ${results}`;
+    userInPut.textContent = results;
 }
 
 function add(num1, num2) {
