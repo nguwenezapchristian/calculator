@@ -64,7 +64,7 @@ function operation() {
         }
     }
     if (bool) {
-        const result = results.toFixed(4); // => four decimal places
+        const result = results.toFixed(4); // => four decimal places to be displayed
         outPut.textContent = `${userInPut.textContent} = ${result}`; 
         userInPut.textContent = '';
     }
