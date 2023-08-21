@@ -3,33 +3,32 @@ const num2 = 1750000;
 const outPut = document.querySelector('#output');
 const userInPut = document.querySelector('#user-input');
 const buttons = document.querySelectorAll('.btn');
-const operatorBtns = document.querySelectorAll('.operator-btn');
-// var operatorValue = '';
 
-operatorBtns.forEach((operatorBtn) => {
-    operatorBtn.addEventListener('click', () => {
-        const operatorValue = operatorBtn.getAttribute('data-value');
-        console.log(operatorValue); 
-    })
-})
+
+// var operatorValue = '';
 
 
 buttons.forEach(function(button) {
     button.addEventListener('click', () => {
         const value = button.getAttribute('data-value');
-        dealWithValue(value);
+        writeBtnValue(value);
         // alert(value);
     })
 })
 
 
-function dealWithValue(value) {
-    if (value === 'Del') {
-        userInPut.textContent = '';
-    } else if (value) {
-        userInPut.textContent += String(value);
-    }
-    console.log(String(value));
+function writeBtnValue(value) {
+    userInPut.textContent += String(value);
+    // console.log(String(value));
+    // console.log(userInPut);
+    // let arrayOfInPut = (String(userInPut.textContent)).split('');
+    // console.log(arrayOfInPut);
+}
+
+function operation() {
+    const userInPutStr = (String(userInPut.textContent));
+    const strToArray = userInPutStr.match(/[+\-*\/]|\d+/g);
+    console.log(strToArray);
 }
 
 function add(num1, num2) {
