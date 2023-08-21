@@ -35,7 +35,7 @@ function writeBtnValue(value) {
 
 function operation() {
     const userInPutStr = (String(userInPut.textContent));
-    const strToArray = userInPutStr.match(/[+\-*\/]|\d+/g); // turning the user input into an array
+    const strToArray = userInPutStr.match(/[+\-*\/]|\d+/g); // turning the user input into an array using regx
     let results = parseInt(strToArray[0], 10);
 
     for (let i = 1; i < strToArray.length; i += 2) {
