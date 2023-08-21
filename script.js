@@ -14,7 +14,7 @@ buttons.forEach(function(button) {
 
 // if '=' button clicked call operation function
 equalBtn.addEventListener('click', () => {
-    if(operation()) {
+    if(String(userInPut.textContent) != '') {
         operation();
     };
 })
@@ -37,12 +37,21 @@ function operation() {
     const userInPutStr = (String(userInPut.textContent));
     const strToArray = userInPutStr.match(/[+\-*\/]|\d+/g); // turning the user input into an array using regx
     let results = parseInt(strToArray[0], 10);
+    bool = true;
 
     for (let i = 1; i < strToArray.length; i += 2) {
         const operator = strToArray[i];
         const num = parseInt((strToArray[i + 1]), 10);
 
         switch(operator) {
+            case "/":
+                if (num == 0) {
+                    outPut.textContent = `Can't divide by Zero`;
+                    bool = false;
+                } else {
+                    results = divide(results, num);
+                }
+                break;
             case "+":
                 results = add(results, num);
                 break;
@@ -52,17 +61,13 @@ function operation() {
             case "*":
                 results = multiply(results, num);
                 break;
-            case "/":
-                if (num == 0) {
-                    outPut.textContent = `You can't divide by 0`
-                } else {
-                    results = divide(results, num);
-                };
-                break;
         }
     }
-    outPut.textContent = `${userInPut.textContent} = ${results}`;
-    userInPut.textContent = results;
+    if (bool) {
+        const result = results.toFixed(4); // => four decimal places
+        outPut.textContent = `${userInPut.textContent} = ${result}`; 
+        userInPut.textContent = '';
+    }
 }
 
 // functions for performing the addition, subtraction, multiplication and division
