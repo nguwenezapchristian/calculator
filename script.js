@@ -2,7 +2,9 @@ const outPut = document.querySelector('#output');
 const userInPut = document.querySelector('#user-input');
 const buttons = document.querySelectorAll('.btn');
 const equalBtn = document.querySelector('.equal-btn');
+const delBtn = document.querySelector('.del-btn');
 
+// get the value for the button if clicked
 buttons.forEach(function(button) {
     button.addEventListener('click', () => {
         const value = button.getAttribute('data-value');
@@ -10,8 +12,17 @@ buttons.forEach(function(button) {
     })
 })
 
-equalBtn.addEventListener('click', () => { // if '=' button clicked call operation function
-    operation();
+// if '=' button clicked call operation function
+equalBtn.addEventListener('click', () => {
+    if(operation()) {
+        operation();
+    };
+})
+
+// if Del button is clicked, clear the user input and output
+delBtn.addEventListener('click', () => {
+    userInPut.textContent = '';
+    outPut.textContent = '';
 })
 
 // function to write the number and operator as the user clicks the button
