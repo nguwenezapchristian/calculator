@@ -5,9 +5,6 @@ const userInPut = document.querySelector('#user-input');
 const buttons = document.querySelectorAll('.btn');
 const equalBtn = document.querySelector('.equal-btn');
 
-// var operatorValue = '';
-
-
 buttons.forEach(function(button) {
     button.addEventListener('click', () => {
         const value = button.getAttribute('data-value');
@@ -23,16 +20,26 @@ equalBtn.addEventListener('click', () => {
 
 function writeBtnValue(value) {
     userInPut.textContent += String(value);
-    // console.log(String(value));
-    // console.log(userInPut);
-    // let arrayOfInPut = (String(userInPut.textContent)).split('');
-    // console.log(arrayOfInPut);
 }
 
 function operation() {
     const userInPutStr = (String(userInPut.textContent));
-    const strToArray = userInPutStr.match(/[+\-*\/]|\d+/g);
-    console.log(strToArray);
+    const strToArray = userInPutStr.match(/[+\-*\/]|\d+/g); // turning the user input into an array
+    let results = parseInt(strToArray[0], 10);
+
+    for (let i = 1; i < strToArray.length; i+2) {
+        const operator = strToArray[i];
+        const num = parseInt((strToArray[i++]), 10);
+
+        switch(operator) {
+            case "+":
+                results = add(results, num);
+                break;
+            case "-":
+                results = subtract(results, num);
+                break;
+        }
+    }
 }
 
 function add(num1, num2) {
@@ -41,7 +48,7 @@ function add(num1, num2) {
 }
 
 function subtract(num1, num2) {
-    const difference = num2 - num1;
+    const difference = num1 - num2;
     return difference;    
 }
 
