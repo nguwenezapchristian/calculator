@@ -38,8 +38,15 @@ function operation() {
             case "-":
                 results = subtract(results, num);
                 break;
+            case "*":
+                results = multiply(results, num);
+                break;
+            case "/":
+                results = divide(results, num);
+                break;
         }
     }
+    console.log(results);
 }
 
 function add(num1, num2) {
@@ -57,7 +64,7 @@ function multiply(num1, num2) {
     return product;
 }
 
-function divide(num2, num1) {
-    const quotient = num2 / num1;
+function divide(num1, num2) {
+    const quotient = num1 / num2;
     return quotient;
 }
