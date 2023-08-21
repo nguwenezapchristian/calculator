@@ -1,5 +1,3 @@
-const num1 = 10000;
-const num2 = 1750000;
 const outPut = document.querySelector('#output');
 const userInPut = document.querySelector('#user-input');
 const buttons = document.querySelectorAll('.btn');
@@ -12,14 +10,17 @@ buttons.forEach(function(button) {
     })
 })
 
-equalBtn.addEventListener('click', () => {
+equalBtn.addEventListener('click', () => { // if '=' button clicked call operation function
     operation();
 })
 
+// function to write the number and operator as the user clicks the button
 
 function writeBtnValue(value) {
     userInPut.textContent += String(value);
 }
+
+// function to perform operation depending on the operator 
 
 function operation() {
     const userInPutStr = (String(userInPut.textContent));
@@ -52,6 +53,8 @@ function operation() {
     outPut.textContent = `${userInPut.textContent} = ${results}`;
     userInPut.textContent = results;
 }
+
+// functions for performing the addition, subtraction, multiplication and division
 
 function add(num1, num2) {
     const total = num1 + num2;
